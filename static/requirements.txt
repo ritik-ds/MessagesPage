@@ -1,0 +1,5 @@
+
+# For ImageField install Pillow 
+python -m pip install Pillow
+
+

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Message</title>
+  </head>
+  <body>
+    <div class="container .align-content-xl-center">
+      <form action="/" method="POST">
+        {% csrf_token %} 
+        <div class="form-group">
+          <label for="text_message">Text Message</label>
+          <textarea rows="4" cols="50" class="form-control" id="text_message" name="text" placeholder="Enter text message">
+          </textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="return alert('Text Message is inserted')">Send Text Message</button>
+      </form>
+      
+      <form action="/" method="POST">
+        {% csrf_token %} 
+        <div class="form-group">
+          <label for="image_message">Image Message</label><br>
+          <input type="file" class="form-control" name="photo" id="image_message" accept="image/*" placeholder="Upload Image">
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="return alert('Image is inserted')">Send Image</button>
+      </form>
+
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <script>
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function() {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+    </script>
+
+  </body>
+</html>
